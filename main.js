@@ -1,5 +1,6 @@
 (() => {
     "use strict";
+    print("Heyyy");
     var e = {
             460: () => {
                 var e = document.getElementById("rbw"),
