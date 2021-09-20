@@ -11,6 +11,7 @@ body {
    html.contrast body {
 	color:#050505
    }
+   .tab { margin-left: 2em; }
    html.contrast blockquote {
 	color:#11151a
    }
