@@ -162,6 +162,9 @@ body {
    p.st {
 	margin-top:-1em
    }
+   p.closer {
+	margin-top:-1.5em
+   }
    div.fancyPositioning div.picture-left {
 	float:left;
 	width:40%;
