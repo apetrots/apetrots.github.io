@@ -26,9 +26,6 @@ body {
    html.contrast span.wr {
 	color:#800
    }
-   html.contrast span.mfw {
-	color:#4d0000
-   }
    @media screen and (prefers-color-scheme:light) {
 	html.inverted {
 	 background-color:#000
@@ -56,9 +53,6 @@ body {
 	html.inverted span.wr {
 	 color:#d24637
 	}
-	html.inverted span.mfw {
-	 color:#b00000
-	}
 	html.inverted.contrast {
 	 background-color:#000
 	}
@@ -84,9 +78,6 @@ body {
 	}
 	html.inverted.contrast span.wr {
 	 color:#db695d
-	}
-	html.inverted.contrast span.mfw {
-	 color:#ff0d0d
 	}
    }
    @media (prefers-color-scheme:dark) {
@@ -116,9 +107,6 @@ body {
 	html:not(.inverted) span.wr {
 	 color:#d24637
 	}
-	html:not(.inverted) span.mfw {
-	 color:#b00000
-	}
 	html:not(.inverted).contrast {
 	 background-color:#000
 	}
@@ -144,9 +132,6 @@ body {
 	}
 	html:not(.inverted).contrast span.wr {
 	 color:#db695d
-	}
-	html:not(.inverted).contrast span.mfw {
-	 color:#ff0d0d
 	}
 	html.inverted html {
 	 background-color:#fefefe
@@ -351,9 +336,6 @@ body {
 	margin-left:.2em;
 	margin-right:.2em;
 	background-color:#454545
-   }
-   span.mfw {
-	color:#730000
    }
    a.kopimi,
    a.kopimi img.kopimi {
