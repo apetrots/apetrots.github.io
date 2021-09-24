@@ -163,6 +163,9 @@ body {
    p.st {
 	margin-top:-1em
    }
+a:link {
+	text-decoration: none;	
+}
    p.closer {
 	margin-top:-1.5em
    }
