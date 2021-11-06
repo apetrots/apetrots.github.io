@@ -166,7 +166,7 @@ body {
 a:link {
 	text-decoration: none;	
 }
-   p.closer {
+   .closer {
 	margin-top:-1.5em
    }
    div.fancyPositioning div.picture-left {

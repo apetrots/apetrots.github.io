@@ -1,4 +1,29 @@
-async function load_newest_articles_by_tag(tag, count)
+function appendToIndex(row)
+{
+    const date = new Date(row['updatedAt'].split('-'))
+    const month = date.toLocaleString('default', { month: 'long' });
+    const dateStr = month + ' ' + date.getDate() + ', ' + date.getFullYear();
+    $('#loadedIndex').append(`<li> ${dateStr} - <a href="${row['url']}">${row['title']}</a> </li>`);
+}
+
+function appendToArticles(row)
+{
+    const date = new Date(row['updatedAt'].split('-'))
+    const month = date.toLocaleString('default', { month: 'long' });
+    const dateStr = month + ' ' + date.getDate() + ', ' + date.getFullYear(); 
+    var preview = "";
+    $.ajax({
+        url: row['url'],
+        type: 'get',
+        async: false,
+        success: function(html) {
+            preview = $(html).filter("#preview")[0].innerHTML;
+        }
+    });
+    $('#loadedArticles').append(`<div class="tab"><h3> ${row['title']} </h3> <p class=\"closer\""><i>${dateStr}</i></p> <div> ${preview}</div></div><hr>`);
+}
+
+async function loadArticlesAndIndex(tags, articleCount)
 {
     const sqlPromise = initSqlJs({
         locateFile: file => '/js/sql-wasm.wasm'
@@ -8,12 +33,23 @@ async function load_newest_articles_by_tag(tag, count)
     const db = new SQL.Database(new Uint8Array(buf));
 
     // Run a query without reading the results
-    const stmt = db.prepare("SELECT * FROM articles WHERE article_id IN (SELECT article_id FROM article_tag WHERE tag_id = (SELECT tag_id FROM tags WHERE title='" + tag +"')) ORDER BY updatedAt DESC LIMIT 5;");
+    var tagQuery = "";
+    for (var i = 0; i < tags.length; i++) {
+        tagQuery += `title = '${tags[i]}' ${i + 1 < tags.count ? " OR " : ""}`;
+    }
+    
+    const stmt = db.prepare("SELECT * FROM articles WHERE article_id IN (SELECT article_id FROM article_tag WHERE tag_id = (SELECT tag_id FROM tags WHERE (" + tagQuery + "))) ORDER BY updatedAt DESC;");
 
-    while(stmt.step()) { //
+    for(var i = 0; stmt.step() && i < articleCount; i++) {
         const row = stmt.getAsObject();
-        $('#includedContent').append('<h1>' + row['title'] + '</h1>').append($('<div>').load(row['url'] + ' #preview'));
-        console.log(row['url']);
+        appendToArticles(row);
+        appendToIndex(row);
+    }
+
+    // get the rest of the rows
+    while(stmt.step()) {
+        const row = stmt.getAsObject();
+        appendToIndex(row);
     }
 }
 

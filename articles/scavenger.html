@@ -35,7 +35,7 @@
 <script src="/js/sql-wasm.js" type="text/javascript"></script>
 <script src="/js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script src="/js/main.js" type="text/javascript"></script>
-<script type="text/javascript">load_newest_articles_by_tag("scavenger", 5);</script>
+<script type="text/javascript">loadArticlesAndIndex(['scavenger'], 5);</script>
 </head>
 
 <body>
@@ -49,20 +49,16 @@
     <p class="st"><i>(5 newest)</i></p>
 
     <hr/>
-    <div class="tab">
-        <div id="includedContent"></div>
+        <div id="loadedArticles"></div>
         <!-- <h3>Dev Log #1 - Platforming Pathfinding</h3>
         <p class="closer"><i>July 24, 2021</i></p>
     
         <p>This first devlog is not really a devlog, but just an explanation for the pathfinding system I came up for this game.</p>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/kNI2I8kzpnE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
-    </div>
-    <hr/>
-
     <h2>Index</h2>
     <ul>
-        <li>July 24, 2021 - <a href="https://www.youtube.com/watch?v=kNI2I8kzpnE">Dev Log #1 - Platforming Pathfinding</a></li>
+        <div id="loadedIndex"></div>
     </ul>
 
     <h2>Contacts</h2>
