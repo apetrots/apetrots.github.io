@@ -20,7 +20,7 @@ function appendToArticles(row)
             preview = $(html).filter("#preview")[0].innerHTML;
         }
     });
-    $('#loadedArticles').append(`<div class="tab"><h3> ${row['title']} </h3> <p class=\"closer\""><i>${dateStr}</i></p> <div> ${preview}</div></div><hr>`);
+    $('#loadedArticles').append(`<div class="tab"><h3><a class="articleLinkl" href="${row['url']}"> ${row['title']}</a></h3> <p class=\"closer\""><i>${dateStr}</i></p> <div> ${preview}</div></div><hr>`);
 }
 
 async function loadArticlesAndIndex(tags, articleCount)
