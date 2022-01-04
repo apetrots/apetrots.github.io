@@ -26,8 +26,11 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
+
+<script src="/js/sql-wasm.js" type="text/javascript"></script>
 <script src="/js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script src="/js/main.js" type="text/javascript"></script>
+<script type="text/javascript">loadArticlesAndIndex(['exploration'], 5);</script>
 </head>
 
 <body>
@@ -37,6 +40,13 @@
     <p>A place to post small articles about exploring places and looking at plants, fungus and animals.</p>
     <h2>Posts</h2>
     <p class="st"><i>(5 newest)</i></p>
+    <hr/>
+    <div id="loadedArticles"></div>
+    <!-- <h3>Dev Log #1 - Platforming Pathfinding</h3>
+    <p class="closer"><i>July 24, 2021</i></p>
+
+    <p>This first devlog is not really a devlog, but just an explanation for the pathfinding system I came up for this game.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/kNI2I8kzpnE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
     <hr/>
     <div class="tab">
