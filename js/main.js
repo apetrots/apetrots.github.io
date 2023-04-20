@@ -47,10 +47,10 @@ async function loadArticlesAndIndex(tags, articleCount)
     }
 
     // get the rest of the rows
-    while(stmt.step()) {
-        const row = stmt.getAsObject();
-        appendToIndex(row);
-    }
+    // while(stmt.step()) {
+    //     const row = stmt.getAsObject();
+    //     appendToIndex(row);
+    // }
 }
 
 $(function(){
