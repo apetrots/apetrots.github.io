@@ -35,9 +35,11 @@ async function loadArticlesAndIndex(tags, articleCount)
     // Run a query without reading the results
     var tagQuery = "";
     for (var i = 0; i < tags.length; i++) {
-        tagQuery += `title = '${tags[i]}' ${i + 1 < tags.count ? " OR " : ""}`;
+        tagQuery += `title = '${tags[i]}' ${i + 1 < tags.length ? " OR " : ""}`;
     }
     
+    console.log(tagQuery);
+
     const stmt = db.prepare("SELECT * FROM articles WHERE article_id IN (SELECT article_id FROM article_tag WHERE tag_id = (SELECT tag_id FROM tags WHERE (" + tagQuery + "))) ORDER BY updatedAt DESC;");
 
     for(var i = 0; stmt.step() && i < articleCount; i++) {
