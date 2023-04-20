@@ -46,11 +46,12 @@ async function loadArticlesAndIndex(tags, articleCount)
         appendToIndex(row);
     }
 
+    stmt.step();
     // get the rest of the rows
-    // while(stmt.step()) {
-    //     const row = stmt.getAsObject();
-    //     appendToIndex(row);
-    // }
+    while(stmt.step()) {
+        const row = stmt.getAsObject();
+        appendToIndex(row);
+    }
 }
 
 $(function(){
