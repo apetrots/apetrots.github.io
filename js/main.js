@@ -40,14 +40,13 @@ async function loadArticlesAndIndex(tags, articleCount)
 
     const stmt = db.prepare(`SELECT * FROM articles WHERE article_id IN (SELECT article_id FROM article_tag WHERE ${tagQuery}) ORDER BY updatedAt DESC;`);
 
-    for(var i = 0; stmt.step() && i < articleCount; i++) {
+    for(var i = 0; i < articleCount && stmt.step(); i++) {
         const row = stmt.getAsObject();
         appendToArticles(row);
         appendToIndex(row);
     }
 
     // TODO: why is this necessary?
-    stmt.step();
 
     // get the rest of the rows
     while(stmt.step()) {
