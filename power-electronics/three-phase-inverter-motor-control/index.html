@@ -42,7 +42,22 @@
     <h3>Three-Phase Inverter with Induction Motor Control</h3>
     <p class="closer"><i>May 3, 2025</i></p>
     <div id="preview">
-        <p>A project made as the final project in my power electronics course</p>
+        <p>A project made as the final project in my EE486 power electronics course at Washington State University.</p>
+        <a href="EE486 Final Project.pdf">Report PDF</a>, <a href="EE486 Project Requirements.pdf">Project Requirements</a>, <a href="final_project.slx">Simulink File</a>
+
+        <hr/>
+        <p><b>Simulation and Analysis of a Three-Phase SPWM Inverter Driving an Induction Motor with Open-Loop V/f Control</b></p>
+
+        <p>
+            This project models and analyzes a three-phase inverter system supplying a standard industrial 5 HP induction motor using open-loop V/f control. The inverter receives power from an ideal 1200-V DC voltage source. The inverter output is controlled via Sinusoidal Pulse Width Modulation (SPWM) to generate a variable-frequency, variable-amplitude three-phase AC signal, suitable for controlling motor speed while maintaining magnetic flux at an optimal level under open-loop V/f control.
+        </p>
+        <p>
+            The project was modeled with a solar-powered induction motor water pump system in mind, which for small-medium applications typically have a 2.0-3.7kW motor fitted to their pump load. This is the reason our chosen motor is rated for 5 HP, which equates to 3.7 kW. How the pump load was modeled will be discussed in a later section.
+        </p>
+        <p>
+            For the sinusoidal-PWM inverter switching control scheme, bipolar switching was used with a 15 kHz triangular switching waveform. The reference sine waves had their amplitude and frequency modulated depending on an RPM setpoint. The sine wave frequency is set to be the motor’s synchronous-speed (4-pole) frequency from the required RPM and the amplitude of the sine waves is controlled based on that frequency – this open-loop V/f control will be discussed in greater detail in the next section. 
+        </p>
+        
     </div>
 
     <h2>Contacts</h2>
