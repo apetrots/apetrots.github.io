@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 1
-description: with background image
+title: Three-Phase SPWM Inverter
+description: Simulation of a Three-Phase SPWM Inverter Driving an Induction Motor with V/f Control
 img: assets/img/12.jpg
 importance: 1
-category: work
+category: technical
 related_publications: true
 ---
 

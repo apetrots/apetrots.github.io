@@ -27,43 +27,48 @@
       "position": "Power System Planning Intern",
       "startDate": "2024-05",
       "endDate": "2024-08",
-      "summary": "Wrote system upgrade studies, generator/load interconnection studies, capacity-need estimates, and conducted load growth simulations.",
+      "summary": "Wrote reports, performed studies and learned a lot about the economic and technical complexities that go into planning for future electricity demand on Avista's Eastern WA/North ID section of the grid.",
       "highlights": [
-        "Performed powerflow analysis with PowerWorld and Synergi",
-        "Created capacity-need estimates for development types",
-        "Interfaced with substation, protection, and operations teams"
-      ]
+        "Wrote system upgrade studies that took into account\u2013amongst other factors\u2013contingency analyses, load growth projections, temperature-dependent system current limits (i.e. FERC order 881) and renewable resource integration.",
+        "Performed transmission and distribution level powerflow analysis with PowerWorld and Synergi.",
+        "Created capacity-need estimates for various residential development types.",
+        "Interfaced with substation, protection, and operations teams. Got a broad overview of the operation of a power utility."
+      ],
+      "url": "/blog/2024/power-experience/"
     },
     {
-      "name": "Boeing / WSU Systems-on-Chip Lab",
+      "name": "WSU Systems-on-Chip Lab / Boeing (sponsor)",
       "position": "Capstone Researcher",
       "startDate": "2024-09",
       "endDate": "2025-05",
-      "summary": "Designed, modeled, and tested a 40\u201344 GHz FMCW radar system optimized for cryogenic environments.",
+      "summary": "Team of four tasked with the design, modeling, and testing of a 40\u201344 GHz FMCW radar system optimized for cryogenic environments. Used the ICE-T cryogenics electronics test-bed.",
       "highlights": [
-        "Sole PCB drafter/designer using Altium",
-        "Developed MATLAB/Simulink RADAR simulations",
-        "Contributed to design of high-gain PCB patch antenna",
-        "Integrated commercial RFSoC (ZCU111) for signal gen/processing",
-        "Tested electronic components at cryogenic temperatures down to 4K"
-      ]
+        "Sole PCB drafter/designer. Used Altium and fabricated via PCBway.",
+        "Developed MATLAB/Simulink RADAR simulations and DSP models.",
+        "Contributed to design of high-gain PCB patch antenna array via ADS and Altium.",
+        "Integrated commercial RFSoC (ZCU111) for signal generation/processing.",
+        "Tested and characterized indidual commercial off-the-shelf (COTS) electronic components with custom PCBs at cryogenic temperatures (down to 4K) to evaluate performance gains from thermal noise reduction and find their functional breakdown temperature.",
+        "Designed component-testing circuits and created custom PCBs for characterizing thin film resistors, various dielectric SMD capacitors (including NP0/C0G), GanFETs (EPC-xxx), voltage regulators (LT6654), precision low-noise op-amps (LMP2022), 4-channel CMOS switches (TMUX1574), matched BJT pairs (DMMT3904W), current monitors (ZXCT1009F) and more."
+      ],
+      "url": "/projects/cryogenic_radar_capstone/"
     },
     {
       "name": "Schweitzer Engineering Laboratories",
       "position": "Test Engineer Intern",
       "startDate": "2023-09",
       "endDate": "2025-06",
-      "summary": "Worked in the 651R Recloser / 2431 Regulator controls manufacturing department.",
+      "summary": "Worked in the protective relay/recloser controls manufacturing support department. Learned a lot about the process engineering that goes into a complex manufacturing floor.",
       "highlights": [
-        "Designed and maintained test cabinets and scripts",
-        "Troubleshot products at cabinet and board level",
-        "Programmed instrument control code for cable/harness testers",
-        "Created documentation and supported manufacturing floor"
-      ]
+        "Supported the manufacturing and testing of SEL-651R Recloser and SEL-2431 Voltage Regulator controls\u2013as well as adjacent products, namely cables and harnesses.",
+        "Designed and maintained test cabinets and custom scripts for technicians to functionally test products before shipping. Fulfilled station support requests.",
+        "Learned to troubleshoot products at cabinet and board level as an occassional production troubleshooting technician.",
+        "Programmed custom instrument control code, for our in-house manufacturing test scripting language, that implemented externally-designed cable/harness testers (CAMI Research) as scriptable instruments. Learned about COM and build systems, created extensive documentation, implemented use on the manufacturing floor."
+      ],
+      "url": "https://selinc.com/"
     },
     {
-      "name": "WSU Game Development Club",
-      "position": "Founder & Teacher",
+      "name": "Game Development Club at WSU",
+      "position": "Founder & President",
       "startDate": "2023-02",
       "endDate": "2025-05",
       "summary": "Founded and grew WSU's Game Development Club, teaching workshops and leading game jams.",
@@ -71,11 +76,12 @@
         "Hosted yearly game jams with 100+ participants",
         "Taught pixel art, 3D art, coding, and game design",
         "Programmed indie games in Unity, Godot, and C++/OpenGL"
-      ]
+      ],
+      "url": "https://wsugamedev.org/"
     },
     {
       "name": "Crimson Robotics (WSU BattleBots Team)",
-      "position": "EE/CS Lead",
+      "position": "Team Member & EE/CS Lead",
       "startDate": "2021-09",
       "endDate": "2023-07",
       "summary": "Led electrical and software efforts on combat robotics projects.",
@@ -83,7 +89,8 @@
         "Designed custom PCBs for battery monitoring, motherboard, and telemetry",
         "Configured FOC-based ESCs and rated components",
         "Used SolidWorks for robot modeling"
-      ]
+      ],
+      "url": "https://www.instagram.com/crimson_robotics/"
     }
   ],
   "education": [
@@ -96,15 +103,16 @@
       "endDate": "2025-05",
       "score": "3.62",
       "courses": [
-        "Power Electronics",
-        "Intro to Control Systems",
-        "Digital Communication Systems",
-        "Digital Signal Processing",
-        "RF and Microwave Circuits/Systems",
-        "Computer Networks/Security",
-        "Digital Logic",
-        "Microprocessors"
-      ]
+        "Power Electronics (EE486)",
+        "Intro to Control Systems (EE489)",
+        "Digital Communication Systems (EE451)",
+        "Digital Signal Processing I (EE464)",
+        "RF and Microwave Circuits and Systems (EE431)",
+        "Introduction to Computer Networks and Security (EE455)",
+        "Design of Logic Circuits (EE214)",
+        "Microprocessor Systems (EE234)"
+      ],
+      "url": "https://school.eecs.wsu.edu/"
     }
   ],
   "skills": [
@@ -156,26 +164,35 @@
   ],
   "projects": [
     {
-      "name": "Simulation of a Three-Phase SPWM Inverter Driving an Induction Motor",
-      "description": "MATLAB simulation of inverter driving an induction motor with V/f control.",
-      "startDate": "2019-01-01",
-      "endDate": "2021-01-01",
+      "name": "Simulation of a Three-Phase SPWM Inverter Driving an Induction Motor with V/f Control",
+      "startDate": "2025-04-01",
+      "endDate": "2025-05-01",
       "highlights": [
-        "Won award at AIHacks 2016"
+        "Click title to view project page."
       ],
-      "url": ""
+      "url": "/projects/three_phase_inverter/"
     },
     {
       "name": "AM Transmitter & Receiver",
-      "description": "Built an AM transmitter and receiver system."
+      "highlights": [
+        "Built an AM transmitter and receiver system.",
+        "Click title to view project page."
+      ],
+      "url": "/projects/am_radio_ee352/"
     },
     {
       "name": "Over-Radio AX.25-Based BBS System",
-      "description": "Implemented AX.25 protocol over radio for BBS communication."
+      "highlights": [
+        "Click title to view project page."
+      ],
+      "url": "/projects/radio_bbs_ax25/"
     },
     {
       "name": "Verilog-Based VGA Display Controller",
-      "description": "Created a VGA display controller using Verilog."
+      "highlights": [
+        "Click title to view project page."
+      ],
+      "url": "/projects/verilog_vga_display_controller/"
     }
   ],
   "awards": [

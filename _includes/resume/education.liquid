@@ -21,6 +21,13 @@
                   {% endif %}
                 </td>
               </tr>
+              {% if content.score %}
+                <tr>
+                  <td>
+                    <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px"> GPA: {{ content.score }} </span>
+                  </td>
+                </tr>
+              {% endif %}
               {% if content.location %}
                 <tr>
                   <td>

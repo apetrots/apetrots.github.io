@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 7
-description: with background image
-img: assets/img/4.jpg
+title: Wizard Orb Persistence-of-Vision Display
+description: 
+img: 
 importance: 1
-category: work
+category: technical
 related_publications: true
 ---
 
