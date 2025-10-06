@@ -11,14 +11,14 @@ ninja.data = [{
     },
   },{id: "nav-resume",
           title: "resume",
-          description: "Download my one-page PDF resume with the download button above!",
+          description: "Download my compact, one-page PDF resume with the download button above!",
           section: "Navigation",
           handler: () => {
             window.location.href = "/resume/";
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "A growing collection of your cool projects.",
+          description: "My projects both technical and creative!",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -64,6 +64,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2024/photo-gallery/";
+          
+        },
+      },{id: "post-power-system-planning",
+        
+          title: "power system planning",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/power-experience/";
           
         },
       },{id: "post-a-post-with-tabs",
@@ -390,51 +401,51 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+          section: "News",},{id: "projects-am-transmitter-amp-receiver",
+          title: 'AM Transmitter &amp;amp; Receiver',
+          description: "",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/1_project/";
-            },},{id: "projects-project-2",
-          title: 'project 2',
-          description: "a project with a background image and giscus comments",
+              window.location.href = "/projects/am_radio_ee352/";
+            },},{id: "projects-bigfoot-defense",
+          title: 'Bigfoot Defense',
+          description: "",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/2_project/";
-            },},{id: "projects-project-3-with-very-long-name",
-          title: 'project 3 with very long name',
-          description: "a project that redirects to another website",
+              window.location.href = "/projects/bigfoot_defense/";
+            },},{id: "projects-cryogenic-fmcw-radar-capstone",
+          title: 'Cryogenic FMCW RADAR Capstone',
+          description: "",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/3_project/";
-            },},{id: "projects-project-4",
-          title: 'project 4',
-          description: "another without an image",
+              window.location.href = "/projects/cryogenic_radar_capstone/";
+            },},{id: "projects-over-radio-ax-25-based-bbs-system",
+          title: 'Over-Radio AX.25-Based BBS System',
+          description: "",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/4_project/";
-            },},{id: "projects-project-5",
-          title: 'project 5',
-          description: "a project with a background image",
+              window.location.href = "/projects/radio_bbs_ax25/";
+            },},{id: "projects-scavenger",
+          title: 'Scavenger',
+          description: "",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/5_project/";
-            },},{id: "projects-project-6",
-          title: 'project 6',
-          description: "a project with no image",
+              window.location.href = "/projects/scavenger/";
+            },},{id: "projects-the-river-kings",
+          title: 'The River Kings',
+          description: "",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/6_project/";
-            },},{id: "projects-project-7",
-          title: 'project 7',
-          description: "with background image",
+              window.location.href = "/projects/the_river_kings/";
+            },},{id: "projects-three-phase-spwm-inverter",
+          title: 'Three-Phase SPWM Inverter',
+          description: "Simulation of a Three-Phase SPWM Inverter Driving an Induction Motor with V/f Control",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/7_project/";
-            },},{id: "projects-project-8",
-          title: 'project 8',
-          description: "an other project with a background image and giscus comments",
+              window.location.href = "/projects/three_phase_inverter/";
+            },},{id: "projects-verilog-based-vga-display-controller",
+          title: 'Verilog-Based VGA Display Controller',
+          description: "",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/8_project/";
-            },},{id: "projects-project-9",
-          title: 'project 9',
-          description: "another project with an image 🎉",
+              window.location.href = "/projects/verilog_vga_display_controller/";
+            },},{id: "projects-wizard-orb-persistence-of-vision-display",
+          title: 'Wizard Orb Persistence-of-Vision Display',
+          description: "",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/9_project/";
+              window.location.href = "/projects/wizard_orb_pov_display/";
             },},{
         id: 'social-email',
         title: 'email',
