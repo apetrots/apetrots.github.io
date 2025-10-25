@@ -413,7 +413,7 @@ ninja.data = [{
               window.location.href = "/projects/bigfoot_defense/";
             },},{id: "projects-cryogenic-fmcw-radar-capstone",
           title: 'Cryogenic FMCW RADAR Capstone',
-          description: "",
+          description: "A senior design project exploring low-noise radar sensing at cryogenic temperatures through a custom FMCW radar board and cryostat integration.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/cryogenic_radar_capstone/";
             },},{id: "projects-over-radio-ax-25-based-bbs-system",

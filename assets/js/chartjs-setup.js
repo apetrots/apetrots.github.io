@@ -1,1 +1,1 @@
-$(document).ready((function(){var t=null,a=null,e=null,n="";$(".language-chartjs").each((function(){a=$(this),t=$("<canvas></canvas>"),n=a.text(),a.text("").append(t),(e=t.get(0).getContext("2d"))&&n&&new Chart(e,JSON.parse(n))&&a.attr("data-processed",!0)}))}));
+$(document).ready((function(){var t=null,a=null,e=null,n="";$(".language-chartjs").each((function(){a=$(this),t=$('<canvas width="100%" style="width:100%"></canvas>'),n=a.text(),a.text("").append(t),(e=t.get(0).getContext("2d"))&&n&&new Chart(e,JSON.parse(n))&&a.attr("data-processed",!0)}))}));
