@@ -6,7 +6,7 @@ description: My projects both technical and creative!
 nav: true
 nav_order: 2
 display_categories: [technical, game dev, creative]
-horizontal: true
+horizontal: false
 ---
 
 <!-- pages/projects.md -->

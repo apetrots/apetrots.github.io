@@ -5,7 +5,7 @@ $(document).ready(function () {
     _text = "";
   $(".language-chartjs").each(function () {
     $this = $(this);
-    $canvas = $("<canvas></canvas>");
+    $canvas = $("<canvas width=\"100%\" style=\"width:100%\"></canvas>");
     _text = $this.text();
     $this.text("").append($canvas);
     _ctx = $canvas.get(0).getContext("2d");
