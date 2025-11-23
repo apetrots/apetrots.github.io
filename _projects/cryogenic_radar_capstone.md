@@ -205,20 +205,11 @@ The goal of these tests was to understand how parameters such as **input offset*
   (Left to right) The LMP2022 cryogenic temperature board. The LMP2022 room temperature board.
 </div>
 
-The cryogenic temperature board has the DUT and a few cryo-rated resistors and capacitors. Decoupling capacitors are added in the design on the power supply rails of the LMP2022 DUT, they are C0G MLCC caps (which have been proven to highly temperature stable down to 4K). Note the pin-out which uses the cryo insert I/O to connect to the room temperature board.
-
-<div class="row justify-content-md-center align-items-center">
-  <div class="col-sm-6 mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/cryo_radar/lmp2022_cryo_schem.png" title="Cryogenic Temperature LMP2022 Schematic" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-<div class="caption">
-  The LMP2022 cryogenic temperature schematic. Pretty simple!
-</div>
+The cryogenic temperature board has the DUT and a few cryo-rated resistors and capacitors. Decoupling capacitors are added in the design on the power supply rails of the LMP2022 DUT, they are C0G MLCC caps (which have proven to be highly temperature stable down to 4K). Note the pin-out which uses the cryo insert I/O to connect to the room temperature board.
 
 You can download the Altium files for this board and others in my [Dropbox](https://www.dropbox.com/scl/fo/jyn1434i0h4bruzsmkzw3/ABfY9RkJvgftWPi5hLuV8p4?rlkey=o8zqyxut5zh4bua50pstkbmvz&st=162fhvwg&dl=0).
 
-The testing circuitry itself took inspiration from an Analog Devices article by James M. Bryant titled "Simple Op Amp Measurements" describing how to test for several DC and AC characteristics with one relatively simple servo loop circuit. This servo loop circuit can be configured with switches and different I/O points to perform its variety of possible tests.
+Connecting to the room temperature board through the cryo-bed's I/O interface, we have the room temperature board with its testing circuitry and switches for changing around what characterization test can be performed. The testing circuitry itself took inspiration from an Analog Devices article by James M. Bryant titled "Simple Op Amp Measurements" describing how to test for several DC and AC characteristics with one relatively simple servo loop circuit. It can perform a variety of possible tests with different measurement/switch configurations.
 
 <div class="row justify-content-md-center">
   <div class="col-sm-6 mt-3 mt-md-0">
@@ -231,53 +222,7 @@ The testing circuitry itself took inspiration from an Analog Devices article by 
 
 The servo loop, supplied with the help of an auxiliary op amp, is meant to force a null at the amplifier's input. Essentially, this allows the amplifier under test to measure its own errors. The auxilary op amp acts as an integrator, establishing a stable feedback loop for the DUT with very high DC open-loop gain.
 
-
-The measurement setup was adapted from the servo-loop characterization methods proposed by Bryant (Analog Devices) and Santoro et al. (IEEE I²MTC 2024):contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}.
-
-The system consisted of two small printed circuit boards:
-
-
-This topology ensured that all sensitive nulling and integration circuitry remained thermally stable, while the DUT experienced the full cryogenic temperature range.
-
-<div class="row justify-content-sm-center">
-  <div class="col-sm-10 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/cryo_radar/lmp2022_test_board.jpg" title="LMP2022 Cryogenic Test Board" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-<div class="caption">
-  The compact LMP2022 test board installed on the cryostat cold stage.  
-  Only the DUT and nearby resistors were cooled, while the servo feedback circuit remained at room temperature.
-</div>
-
----
-
-### Circuit and Measurement Method
-
-The servo loop forced the LMP2022’s differential input voltage to zero, allowing its **input offset voltage** and **bias currents** to be inferred indirectly from the feedback network.  
-Switching configurations in the circuit provided multiple measurement modes, following the relationships defined by Santoro et al. for bias and offset current extraction:
-
-\[
-IB_n = (V_B - V_A) \frac{R_2}{R_7(R_2 + R_3)} \quad\text{and}\quad IB_p = (V_A - V_C)\frac{R_2}{R_6(R_2 + R_3)}
-\]
-
-The circuit used precision 0.1 % resistors with 25 ppm/°C drift to minimize temperature dependence.  
-Long cable runs were compensated by an **auxiliary amplifier pole–zero network (R₅–C₂)** in the warm loop, which stabilized the integrator against cable capacitance — a detail borrowed from the IEEE cryogenic amplifier test design.
-
-Measurements were performed over multiple temperature sweeps from 300 K down to 77 K, with voltage readings logged on a **Keysight 34970A DAQ** and current monitored via a **semiconductor parameter analyzer (HP 4145B)**:contentReference[oaicite:2]{index=2}.
-
----
-
-### Results and Observations
-
-The **LMP2022** maintained full operation throughout the cryogenic cycle.  
-Key findings included:
-
-- **Input offset voltage:** increased slightly in magnitude as temperature dropped, with a monotonic trend similar to prior LMV321A results from Santoro et al.  
-- **Input bias currents:** remained below 200 pA at all temperatures.  
-- **Quiescent current:** decreased by approximately 25–30 % at 77 K, indicating lower static power consumption.
-
-These measurements confirmed that the LMP2022 could reliably operate in cryogenic feedback loops such as those used in the radar’s low-noise analog control stages.
-
+Before we put the boards in cryo, we always did the full suite of tests to get the DUT's characteristics at room temperature (and check if our boards work!)
 
 <div class="row justify-content-md-center">
   <div class="col-sm mt-3 mt-md-0">
@@ -300,103 +245,8 @@ LMP2022 Cryo and Room Temp Test Boards Connected for Configurable Testing
 (left) LMP2022 Room Temp Board Top View. (right) Cryo Temp Test Board Top View
 </div>
 
+We then 
 
----
-
-## Overview
-
-The radar system was split into two main sections:
-- **Front End:** A physical radar system capable of functioning at low temperature (fabricated around 40 GHz and 77 GHz chipsets).  
-- **Back End:** Chirp synthesis and digital signal processing implemented on a **ZCU111 RFSoC** platform using **MATLAB/Simulink** models that compile directly to FPGA hardware.
-
-The combination of these two allowed us to investigate **low-temperature noise reduction** and **range accuracy improvements** under cryogenic conditions.
-
----
-
-## Antenna Design and Simulation
-
-We designed a **3×4 microstrip patch antenna array** on an **8-mil Rogers 4003C substrate**, targeting the 40–44 GHz band:contentReference[oaicite:3]{index=3}.  
-
-Using **Keysight ADS** and **EMPro**, we optimized for:
-- S11 < −10 dB across the band  
-- Impedance matching at 50 Ω  
-- Peak gain ≈ 12.2 dBi and directivity ≈ 13.2 dBi  
-
-<div class="row">
-  <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/cryo_radar/image8.png" title="ADS Far-Field Visualization of 3×4 Patch Array" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-<div class="caption">
-  Fig 1. ADS far-field simulation of the 40–44 GHz patch antenna array, optimized for −10 dB return loss and 50 Ω impedance matching.
-</div>
-
-Further simulations in EMPro included **gold alloy top and bottom plates** to model the cryostat’s metallic enclosure:contentReference[oaicite:4]{index=4}, confirming stable impedance and gain even under constrained cavity conditions.
-
----
-
-## Beta Prototype and Board Fabrication
-
-Due to supply constraints at 77 GHz, we implemented **two radar architectures** — a primary 40 GHz system for testing and a secondary 77 GHz design for later comparison:contentReference[oaicite:5]{index=5}.
-
-The 40 GHz board integrated:
-- Up- and down-conversion modules  
-- Microstrip patch array  
-- RF interfaces for cryostat feedthroughs  
-- Shielded regions for transmit/receive isolation  
-
-<div class="row justify-content-sm-center">
-  <div class="col-sm-10 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/cryo_radar/image12.png" title="Complete 40 GHz Radar Board" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-<div class="caption">
-  Fig 4. Assembled 40 GHz radar board designed for cryogenic operation. Fabrication validated impedance control and thermal compatibility for testing inside the cryocooler.
-</div>
-
-Testing was scheduled roughly **3–4 weeks** after fabrication, allowing baseline validation at room temperature before cryogenic trials:contentReference[oaicite:6]{index=6}.
-
----
-
-## Chirp Generation and Digital Backend
-
-The digital subsystem, implemented on the **ZCU111 RFSoC**, used HDL-compatible MATLAB/Simulink blocks for chirp synthesis and FFT-based signal processing:contentReference[oaicite:7]{index=7}.  
-Two chirp synthesis methods were evaluated:
-1. **Memory-stored waveform samples**
-2. **NCO direct digital synthesis (DDS)**  
-
-Processing constraints of the ZCU111 required **parallelized data handling (≈ 8 samples per cycle)** to maintain real-time operation.
-
----
-
-## Cryogenic and Broader Impacts
-
-Cryogenic electronics are transforming **space exploration** and **quantum computing**, where reduced thermal noise improves detection of faint signals and stabilizes qubit coherence:contentReference[oaicite:8]{index=8}.
-
-- The **James Webb Space Telescope** uses cryogenic sensors to detect deep-space infrared signals at ~7 K.  
-- **Quantum processors** rely on similar cooling to maintain coherence near absolute zero.  
-
-Our radar project contributes to this lineage — studying **how cryogenics enhance radar signal fidelity** and **open pathways for low-noise sensing** across research and industry.
-
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/cryo_radar/image15.png" title="Cryogenic Radar Conceptual Model" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-<div class="caption">
-  Concept illustration linking cryogenic radar technology to applications in astrophysics and quantum information science.
-</div>
-
----
-
-## Work Remaining and Next Steps
-
-By the end of the semester, the team focused on:
-- Completing **component characterization boards** under cryogenic conditions  
-- Integrating the radar PCB with FPGA backend  
-- Performing **room-temperature and cryogenic testing** to compare performance metrics:contentReference[oaicite:9]{index=9}  
-
-The next milestones include full-system calibration, range testing, and eventual operation below 100 K to study noise suppression in real conditions.
 
 ---
 
